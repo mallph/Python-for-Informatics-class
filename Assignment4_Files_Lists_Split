@@ -2,7 +2,22 @@
 # Assignment 4
 # Python3
 
-fname = input("Enter filename: ")
-fhand = open(fname)
-for line in fhand:
-	print(line.rstrip())
+script_list = []
+filename = input("Enter filename: ")
+filehand = open(filename)
+for line in filehand:
+    line_list = line.split()
+    for word in line_list:
+        if word not in script_list:
+            script_list.append(word)
+script_list.sort()
+print(script_list)
+
+def freq_count(search, lst):
+    for text in lst:
+        str_count = 0
+        str_count = text.count(search)
+        print(text)
+        print(str_count)
+
+freq_count('ss', ['Mississippi', 'kisses'])
