@@ -2,22 +2,28 @@
 # Assignment 4
 # Python3
 
+import sys
 script_list = []
 filename = input("Enter filename: ")
-filehand = open(filename)
+substring = input("Enter substring: ")
+try:
+    filehand = open(filename)
+except:
+    print('File cannot be opened: ', filename)
+    sys.exit(0)
+
 for line in filehand:
     line_list = line.split()
     for word in line_list:
         if word not in script_list:
             script_list.append(word)
 script_list.sort()
-print(script_list)
 
 def freq_count(search, lst):
     for text in lst:
         str_count = 0
         str_count = text.count(search)
-        print(text)
-        print(str_count)
+        print(text + ': ' + str(str_count))
 
-freq_count('ss', ['Mississippi', 'kisses'])
+freq_count(substring, script_list)
+filehand.close()
