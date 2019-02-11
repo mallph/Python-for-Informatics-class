@@ -2,8 +2,8 @@
 # Assignment 4
 # Python3
 
-import sys
-script_list = []
+import sys  # needed for python3 to use sys.exit(0)
+
 filename = input("Enter filename: ")
 substring = input("Enter substring: ")
 try:
@@ -12,6 +12,7 @@ except:
     print('File cannot be opened: ', filename)
     sys.exit(0)
 
+script_list = []  # initialize script_list before entering for loop
 for line in filehand:
     line_list = line.split()
     for word in line_list:
@@ -19,11 +20,12 @@ for line in filehand:
             script_list.append(word)
 script_list.sort()
 
+
 def freq_count(search, lst):
     for text in lst:
-        str_count = 0
         str_count = text.count(search)
         print(text + ': ' + str(str_count))
+
 
 freq_count(substring, script_list)
 filehand.close()
